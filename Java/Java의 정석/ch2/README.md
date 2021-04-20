@@ -37,5 +37,5 @@
 |%c|문자로 출력|
 |%s|문자열로 출력|
 
-[예제]()
+[예제](https://github.com/jjy3385/StandardOfJava/blob/main/src/ch2/PrintfEx1.java)
 
