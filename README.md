@@ -1,7 +1,7 @@
 # Today I Learned(TIL)
 
 ## Java
-* [Java의정석](https://github.com/jjy3385/TIL/blob/main/Java/Java%EC%9D%98%20%EC%A0%95%EC%84%9D.md)
+* [Java의 정석](https://github.com/jjy3385/TIL/blob/main/Java/Java%EC%9D%98%20%EC%A0%95%EC%84%9D/README.md)
 
 
 ## 자료구조와알고리즘
