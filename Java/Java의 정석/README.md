@@ -2,5 +2,4 @@
 
 # Java의 정석
 
-## 챕터2.변수(Variable)
-
+## [챕터2.변수(Variable)](https://github.com/jjy3385/TIL/blob/main/Java/Java%EC%9D%98%20%EC%A0%95%EC%84%9D/ch2/README.md)
