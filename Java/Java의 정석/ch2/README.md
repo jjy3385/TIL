@@ -4,7 +4,7 @@
 
 단 하나의 값을 저장할 수 있는 메모리상의 공간
 
-## 기본형 변수의 저장할 수 있는 값의 범위
+## 저장할 수 있는 값의 범위
 
 |자료형|저장 가능한 값의 범위|크기(bit)|
 |--|--|--|
@@ -37,5 +37,10 @@
 |%c|문자로 출력|
 |%s|문자열로 출력|
 
-[예제](https://github.com/jjy3385/StandardOfJava/blob/main/src/ch2/PrintfEx1.java)
+[예제1](https://github.com/jjy3385/StandardOfJava/blob/main/src/ch2/PrintfEx1.java)
+
+[예제2](https://github.com/jjy3385/StandardOfJava/blob/main/src/ch2/PrintfEx2.java)
+
+
+
 
