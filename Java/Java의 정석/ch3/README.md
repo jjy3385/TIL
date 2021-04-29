@@ -68,7 +68,7 @@ char형의 사칙연산도 int로 변환한 후 연산하므로 다시 char형 �
 
 왜냐하면 컴파일러가 미리 연산을 수행하기 때문이다.
 
-(잘 이해는 안됨, 컴파일러가 연산할 땐 자동형변환을 하지 않는다는 뜻?)
+(❓잘 이해는 안됨, 컴파일러가 연산할 땐 자동형변환을 하지 않는다는 뜻?)
 
 [예제](https://github.com/jjy3385/StandardOfJava/blob/main/src/ch3/OperatorEx13.java)
 
@@ -96,7 +96,7 @@ float 과 double 을 비교하기 위해선 double 타입 자료를 float 타입
 
 == 는 두 문자열이 완전히 같은 것인지 비교하는 것이다
 
-(여기서 완전히 같다는 얘기는 참조하는 주소값이 같은지를 물어보는 것으로 생각되지만 9장의 내용이므로 패스)
+(❓여기서 완전히 같다는 얘기는 참조하는 주소값이 같은지를 물어보는 것으로 생각되지만 9장의 내용이므로 패스)
 
 반면 equals()는 두 문자열의 내용이 같은지 비교할 때 쓴다
 
@@ -171,7 +171,7 @@ float 과 double 을 비교하기 위해선 double 타입 자료를 float 타입
 
 (❓정확히 이해는 못했음,다만 음수를 2의 보수법에 의해 이진수로 만들었기 때문에 이렇게 된다고 생각함)
 
-[예제](https://github.com/jjy3385/StandardOfJava/blob/main/src/ch3/OperatorEx30ava)
+[예제](https://github.com/jjy3385/StandardOfJava/blob/main/src/ch3/OperatorEx30.java)
 
 >좌측 피연산자엔 산술 변환이 적용되어 int보다 작은 경우엔 int로 자동형변환된다
 >하지만 우측 피연산자는 산술 변환이 적용되지 않는다
