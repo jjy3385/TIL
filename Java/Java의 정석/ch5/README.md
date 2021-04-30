@@ -55,6 +55,6 @@ score[2] = new int[4];
 
 ### 다차원 배열의 활용
 
-[좌표에 X표하기 예제](https://github.com/jjy3385/StandardOfJava/blob/main/src/ch5/MultiEx1.java)
+[좌표에 X표하기 예제](https://github.com/jjy3385/StandardOfJava/blob/main/src/ch5/MultiArrEx1.java)
 
-[행렬의 곱셈 예제](https://github.com/jjy3385/StandardOfJava/blob/main/src/ch5/MultiEx3.java)
+[행렬의 곱셈 예제](https://github.com/jjy3385/StandardOfJava/blob/main/src/ch5/MultiArrEx3.java)
