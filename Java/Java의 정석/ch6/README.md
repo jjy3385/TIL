@@ -125,7 +125,7 @@
 
 >왜냐하면 오버로딩한 메서드를 컴파일러가 구분하지 못할 수 있기 때문이다 
 
-[예제](https://github.com/jjy3385/StandardOfJava/blob/main/src/ch6/VarArgEx.java)
+[예제](https://github.com/jjy3385/StandardOfJava/blob/main/src/ch6/VarArgsEx.java)
 
 ## 생성자
 
