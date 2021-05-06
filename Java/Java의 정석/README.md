@@ -12,4 +12,4 @@
 
 ## [챕터6.개체지향 프로그래밍1(Object-oriented Programming 1)](https://github.com/jjy3385/TIL/blob/main/Java/Java%EC%9D%98%20%EC%A0%95%EC%84%9D/ch6/README.md)
 
-## [챕터7.개체지향 프로그래밍2(Object-oriented Programming 1)](https://github.com/jjy3385/TIL/blob/main/Java/Java%EC%9D%98%20%EC%A0%95%EC%84%9D/ch7/README.md)
+## [챕터7.개체지향 프로그래밍2(Object-oriented Programming 2)](https://github.com/jjy3385/TIL/blob/main/Java/Java%EC%9D%98%20%EC%A0%95%EC%84%9D/ch7/README.md)
