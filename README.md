@@ -6,7 +6,8 @@
 ## Java
 * [Java의 정석](https://github.com/jjy3385/TIL/blob/main/Java/Java%EC%9D%98%20%EC%A0%95%EC%84%9D/README.md)
 
-## Spring
+## 웹개발 기초
+* [자바 웹을 다루는 기술](https://github.com/jjy3385/TIL/tree/main/%EC%9B%B9%EA%B0%9C%EB%B0%9C)
 
 ## Database
 
