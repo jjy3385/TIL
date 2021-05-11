@@ -6,7 +6,7 @@
 
 ## [4장.웹 애플리케이션 이해하기](https://github.com/jjy3385/TIL/blob/main/%EC%9B%B9%EA%B0%9C%EB%B0%9C/4%EC%9E%A5/README.md)
 
-## 5장.서블릿 이해하기
+## [5장.서블릿 이해하기](https://github.com/jjy3385/TIL/blob/main/%EC%9B%B9%EA%B0%9C%EB%B0%9C/5%EC%9E%A5/README.md)
 
 ## 6장.서블릿 기초
 
