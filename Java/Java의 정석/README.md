@@ -1,6 +1,8 @@
-> Java의 정석 내용정리,자바 기본기의 골격
+> Java의 정석 내용정리 - 3판
 
 # Java의 정석
+
+## [챕터1.자바를 시작하기 전에](https://github.com/jjy3385/TIL/blob/main/Java/Java%EC%9D%98%20%EC%A0%95%EC%84%9D/ch1/README.md)
 
 ## [챕터2.변수(Variable)](https://github.com/jjy3385/TIL/blob/main/Java/Java%EC%9D%98%20%EC%A0%95%EC%84%9D/ch2/README.md)
 
