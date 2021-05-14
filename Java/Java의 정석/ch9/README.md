@@ -249,7 +249,114 @@ rint()도 round()처럼 소수점 첫 째자리에서 반올리하지만 반환�
 
 [예제](https://github.com/jjy3385/StandardOfJava/blob/main/src/ch9/WrapperEx3.java)
 
-# 유용한 클래스들
+
+
+# 유용한 클래스
+
+## 1.java.util.Objects클래스
+
+객체의 비교나 널체크에 유용
+
+### equals메서드
+
+Objects클래스의 equals() 메서드는 null검사를 함께 해준다
+
+즉 `if(a!=null && a.equals(b))` 와 같은 뜻이다
+
+### deepEquals()메서드
+
+객체를 재귀적으로 비교하기 때문에 다차원 배열의 비교도 가능하다
+
+[예제](https://github.com/jjy3385/StandardOfJava/blob/main/src/ch9/ObjectsTest.java)
+
+## 2.java.util.Random클래스
+
+같은 종자값(seed)를 사용할 경우 같은 값들을 순서대로 얻게 된다
+
+## 3.정규식(Regular Expression) - java.util.regex패키지
+
+정규식이란 텍스트 데이터 중 원하는 패턴과 일치하는 문자열을 찾아내기 위한 것으로 **미리 정의된 기호와 문자를 이용해 작성한 문자열**을 말한다
+
+`Pattern` 클래스는 정규식을 정의하는데 사용되고 `Matcher`는 정규식(패턴)을 데이터와 비교하는 역할을 한다
+
+[예제1](https://github.com/jjy3385/StandardOfJava/blob/main/src/ch9/RegularEx1.java)
+
+#### 예제1 설명(정규식 사용하는 법)
+
+1. 정규식을 매개변수로 Pattern클래스의 static메서드인 compile(Stirng regex)를 호출하여 Pattern인스턴스를 얻는다
+
+   `Pattern p = Pattern.compile("c[a-z]");`
+
+2. 정규식으로 비교할 대상 문자열을 매개변수로 Pattern클래스의 matcher(CharSequence input)을 호출하여 Matcher인스턴스를 얻는다
+
+   즉,matcher메서드의 반환형이 Matcher 클래스이다.
+
+   `Matcher m = p.matcher(data[i]);`
+
+3. Matcher인스턴스의 boolean matches()를 호출하여 정규식에 부합하는지 확인한다
+
+   `if(m.matches())`
+
+   
+
+[예제2](https://github.com/jjy3385/StandardOfJava/blob/main/src/ch9/RegularEx2.java)
+
+[예제3](https://github.com/jjy3385/StandardOfJava/blob/main/src/ch9/RegularEx3.java)
+
+[예제4](https://github.com/jjy3385/StandardOfJava/blob/main/src/ch9/RegularEx4.java)
+
+## 4.java.util.Scanner클래스
+
+화면,파일,문자열과 같은 입력소스로부터 문자데이터를 읽어오는데 도움주는 클래스다
+
+[예제](https://github.com/jjy3385/StandardOfJava/blob/main/src/ch9/ScannerEx1.java)
+
+## 5.StringTokenizer
+
+긴 문자열을 지정된 구분자(delimiter)를 기준으로 여러 개의 문자열로 자르는 데 사용된다
+
+똑같은 기능을 `String`의 `split(String regex)` 과 `Scanner`의 `useDelimiter(String pattern)`을 사용하여 구현할 수 있다
+
+다만, `StringTokenizer`는 정규식에 익숙하지 않은 경우 사용하기 편하다
+
+## 6.java.math.BigInteger클래스
+
+가장 큰 정수형 타입인 long으로 표현할 수 있는 10진수는 19자리 정도이다
+
+`BigInteger`는 이보다 더 큰 정수를 표현하기 위해 사용된다
+
+내부적으로 int배열을 사용하여 값을 저장하는 방식이다
+
+```java
+final int signum;	//부호
+final int[] mag;	//값
+```
+
+부호만 다른 두 값은 meg는 같고 signum만 다르다
+
+[예제](https://github.com/jjy3385/StandardOfJava/blob/main/src/ch9/BigIntegerEx.java)
+
+## 7.java.math.BigDecimal클래스
+
+가장 큰 실수형 타입인 double의 경우 정밀도가 최대 13자리정도이다
+
+`BigDecimal`은 실수형과 달리 정수를 이용해서 실수를 표현한다
+$$
+정수 * 10^{-scale}
+$$
+
+```java
+private final BigInteger intVal;	//정수
+private final int scale;			//지수
+private transient int precision; 	//정밀도
+```
+
+* 정수부를 표현하는데 `BigInteger`를 사용한다
+
+* 지수부인 scale이  -scale로 올라가므로 소수점 자릿수를 의미한다
+
+[예제](https://github.com/jjy3385/StandardOfJava/blob/main/src/ch9/BigDecimalEx.java)
+
 
 
 
