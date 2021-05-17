@@ -1,5 +1,4 @@
 # 컬렉션 프레임웍
-
 📌데이터 그룹을 다루는 표준화된 프로그래밍 방식
 
 ## 핵심 인터페이스
@@ -370,6 +369,3 @@ compare(),compareTo() 의 반환값
 마지막 정렬구문 `Arrays.sort(strArr,new Descending());`의 경우 지정한 comparator구현 클래스의 메서드에 의해서 정렬이 수행된다
 
 ## 8.HashSet
-
-
-
