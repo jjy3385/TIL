@@ -369,3 +369,162 @@ compare(),compareTo() 의 반환값
 마지막 정렬구문 `Arrays.sort(strArr,new Descending());`의 경우 지정한 comparator구현 클래스의 메서드에 의해서 정렬이 수행된다
 
 ## 8.HashSet
+
+중복된 요소를 저장하지 않고 저장순서를 유지하지 않음
+
+linkedHashSet은 저장순서를 유지하는 Set 인터페이스 구현 클래스임
+
+[예제](https://github.com/jjy3385/StandardOfJava/blob/main/src/ch11/HashSetEx1.java)
+
+[예제 - 로또](https://github.com/jjy3385/StandardOfJava/blob/main/src/ch11/HashSetLotto.java)
+
+로또번호를 생성하는 예제에서 `Collections.sort(list)`의 정렬기준은 입력된 객체인 Integer클래스에 정의된 기본정렬이 사용된다
+
+[예제 - 같은 객체인지 판별](https://github.com/jjy3385/StandardOfJava/blob/main/src/ch11/HashSetEx4.java)
+
+>  📌HashSet의 add메서드는 새로운 요소를 추가하기 전에 기존에 저장된 요소와 같은 것인지 **판별하기 위해 추가하려는 요소의 equals()와 hashCode()**를 호출한다. 따라서 **equals()와 hashCode() 메서드를 목적에 맞게 오버라이딩**해줘야함
+
+#### 오버라이딩을 통해 작성된 hashCode() 의 조건
+
+* 실행 중인 애플리케이션 내의 동일한 객체에 대해서 여러 번 hashCode()를 호출해도 동일한 int값을 반환해야한다
+
+  하지만, 실행시마다 동일한 int값을 반환할 필요는 없다
+
+* equals()메서드를 이용한 비교에 의해 true를 얻은 두 객체에 대해 각각 hashCode()를 호출해서 얻은 결과가 반드시 같아야 한다
+* equals()메서드를 호출했을 때 false를 받환하는 두 객체는 hashCode() 호출에 대해 같은 int값을 반한하는 경우가 있어도 괜찮지만, 해싱을 사용하는 컬렉션의 성능을 향상시키기 위해서는 다른 int값을 반환하는 것이 좋다
+
+> 📌두 객체에 대해 equals()메서드를 호출한 결과가 true면, 두 객체의 해시코드는 반드시 같아야하지만, 두 객체의 해시코드가 같다고 해서 equals()메서드 호출결과가 반드시 true이어야 하는 것은 아닌 관계이다.
+
+## 9.TreeSet
+
+이진 검색 트리(binary search tree)라는 자료구조의 형태로 데이터를 저장하는 컬렉션 클래스
+
+어쨋든 Set인터페이스를 구현했으므로 중복을 허용하지 않고 정렬된 위치에 저장되므로 저장순서도 유지하지 않는다.
+
+#### 이진트리의 노드 코드
+
+```java
+class TreeNode{
+    TreeNode left;	//왼쪽 자식노드
+    Object element; //객체를 저장하기 위한 참조변수
+    TreeNode right; //오른쪽 자식노드
+}
+```
+
+> 🚩위의 코드를 봤을 때 컬렉션은 객체저장을 위한 Object 참조변수와 그 접근방법을 제어하는 변수와 기능의 묶음이란 것을 알 수 있음
+
+첫번째로 저장되는 값은 루트가 되고 그 다음부터는 첫번째 값과 비교하여 작으면 왼쪽에, 크면 오른쪽에 저장한다
+
+컴퓨터는 알아서 비교를 할 수 없다.
+
+따라서 TreeSet에 저장되는 객체가 Comparable을 구현해놨다 또는 TreeSet에게 Comparator 객체를 제공해서 두 객체를 비교할 방법을 알려준다
+
+그렇게 하지 않으면 예외가 발생한다
+
+데이터를 순차적으로 저장하지 않고 저장위치를 찾아서 저장해야하고 삭제하는 경우엔 트리의 일부를 재구성해야하므로 링크드 리스트보다 데이터의 추가/삭제 시간은 느리다.대신에 배열이나 링크드 리스트에 비해 검색과 정렬기능이 더 뛰어나다
+
+[예제 - 로또](https://github.com/jjy3385/StandardOfJava/blob/main/src/ch11/TreeSetLotto.java)
+
+TreeSet은 저장할 때 이미 정렬하기 때문에 읽어올 때 따로 정렬할 필요없음
+
+[예제1](https://github.com/jjy3385/StandardOfJava/blob/main/src/ch11/TreeSetEx1.java)
+
+[예제 - 아스키](https://github.com/jjy3385/StandardOfJava/blob/main/src/ch11/AsciiPrint.java)
+
+[예제2](https://github.com/jjy3385/StandardOfJava/blob/main/src/ch11/TreeSetEx2.java)
+
+## 10.HashMap과 HashTable
+
+HashTable의 새로운 버전이 HashMap이므로 HashMap을 사용하자
+
+키(key)와 값(value)을 하나의 데이터(entry)로 저장한다
+
+그리고 해싱을 사용하기 때문에 많은 양의 데이터를 검색하는데 있어서 뛰어난 성능을 보인다
+
+```java
+public class HaspMap extends AbstractMap implements Map,Cloneable,Serializable {
+    transient Entry[] table;
+    ...
+    static class Entry implments Map.Entry {
+        final object key;
+        object value;
+    }
+}
+```
+
+Entry는 Map의 내부 클래스이고 이 Entry안에 key와 value가 묶여져있는 형태임
+
+> 키 - 컬렉션 내의 키(key) 중에서 유일해야 함
+>
+> 값 - 키와 달리 중복 허용
+
+[예제1](https://github.com/jjy3385/StandardOfJava/blob/main/src/ch11/HashMapEx1.java)
+
+기존에 저장한 키를 또 저장하면 기존 값을 덮어쓴다
+
+#### 해싱과 해시함수(❓)
+
+해시함수를 이용해서 데이터를 해시테이블에 저장하고 검색하는 기법
+
+해싱에서 사용하는 자료구조는 배열과 링크드 리스트의 조합이다
+
+1. 검색하고자하는 값의 키로 해시함수를 호출한다
+2. 해시함수의 계산결과(해시코드)로 해당 값이 저장되어 있는 배열요소와 그 요소에 연결된 링크드 리스트를 찾는다
+3. 링크드 리스트에서 검색한 키와 일치하는 데이터를 찾는다
+
+> 📌링크드 리스트의 크기가 커질수록 검색속도가 떨어지게 된다
+>
+> 즉, 키를 입력해서 배열의 요소로 접근하는데까지는 O(1) 시간이 걸리지만 그 요소에서 다시 링크드 리스트 형태의 특정 요소로 접근하려면 
+>
+> 모든 요소를 순차적으로 탐색해야되기 때문에 링크드 리스트의 크기가 커지지 않게 해주는 해시함수가 좋은 해시함수라고 할 수 있다
+
+HashMap과 같이 해싱을 구현한 컬렉션 클래스에서는 Object클래스에 정의된 hashCode()를 해시함수로 사용한다
+
+HashMap도 서로 같은 객체를 구별하는 방법은 위의 HashSet과 동일하다
+
+[오버라이딩을 통해 작성된 hashCode() 의 조건](### 오버라이딩을 통해 작성된 hashCode() 의 조건)
+
+## 11.TreeMap
+
+이진검색트리 형태로 키와 값 쌍으로 이루어진 자료구조
+
+[예제](https://github.com/jjy3385/StandardOfJava/blob/main/src/ch11/TreeMapEx1.java)
+
+실행시키면 키(문자열)이 기본적으로 오름차순 정렬됨을 확인할 수 있음
+
+## 12.Properties
+
+Entry에 저장되는 키와 값이 Object가 아니라 String인 단순한 형태의 컬렉션 클래스이다.
+
+주로 애플리케이션의 환경설정과 관련된 속성을 저장하는데 사용됨
+
+어쨋든 Map인터페이스를 구현한 클래스이기 때문에 저장순서를 유지하지 않고 키의 중복을 허용하지 않는다.
+
+## 13.Collections
+
+Arrays가 배열과 관련된 메서드를 제공하는 것처럼 Collections는 컬렉션과 관련된 메서드를 제공하는 클래스이다
+
+#### 컬렉션 동기화 - synchronizedXXXX() 메서드
+
+멀티 쓰레드 프로그래밍에서 하나의 객체를 여러 쓰레드가 동시에 접근할 수 있다
+
+이 때, 데이터의 일관성(consistency)을 유지하기 위해서 공유되는 객체의 동기화가 필요하다
+
+이것을 지원하는 메서드임(구버전 클래스는 제외)
+
+#### 변경불가 컬렉션 만들기 - unmodifiableXXX 메서드
+
+컬렉션에 저장된 데이터를 보호하기 위해 , 즉 읽기전용으로 만들 때 사용
+
+#### 싱클톤 컬렉션 만들기 - singletonXXX 메서드
+
+단 하나의 객체만을 저장하는 컬렉션을 만들 떄 사용
+
+#### 한 종류의 객체만 저장하는 컬렉션 만들기 - checkedXXX 메서드
+
+
+
+
+
+
+
