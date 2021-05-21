@@ -8,9 +8,9 @@
 
 ## [5장.서블릿 이해하기](https://github.com/jjy3385/TIL/blob/main/%EC%9B%B9%EA%B0%9C%EB%B0%9C/5%EC%9E%A5/README.md)
 
-## 6장.서블릿 기초
+## [6장.서블릿 기초](https://github.com/jjy3385/TIL/blob/main/%EC%9B%B9%EA%B0%9C%EB%B0%9C/6%EC%9E%A5/README.md)
 
-## 7장.서블릿 비즈니스 로직 처리
+## [7장.서블릿 비즈니스 로직 처리](https://github.com/jjy3385/TIL/blob/main/%EC%9B%B9%EA%B0%9C%EB%B0%9C/7%EC%9E%A5/README.md)
 
 ## 8장.서블릿 확장 API 사용하기
 
