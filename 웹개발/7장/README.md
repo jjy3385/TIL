@@ -77,11 +77,33 @@ con = DriverManager.getConnection(url, user, pwd);
 
 1. 톰캣 컨테이너 실행 시 ConnectionPool 객체 생성
 2. 생성된 커넥션 객체가 DBMS와 연결
-3. 
+3. 데이터베이스와 연동 작업이 필요할 경우 응용 프로그램은 커넥션풀에서 제공하는 메서드를 호출
+
+🚩톰캣 실행 시 톰캣 설정 파일에 설정된 데이터베이스 정보를 이용하여 미리 데이터베이스에 연결함
+
+### JNDI(Java Naming and Directory Interface)
+
+필요한 자원을 키/값 쌍으로 저장한 후 필요할 때 키를 이용해 값을 얻는 방법
+
+톰캣 컨테이너가 ConnectionPool 객체를 생성하면 이 객체에 대한 JNDI 이름을 미리 설정해 놓음
+
+그러면 데이터베이스 연동 시 그 이름으로 접근하여 작업함
+
+### 톰캣의 DataSource 설정 및 사용 방법
+
+1. jdbc 드라이버를 /WEB-INF/lib 폴더에 설치
+
+2. ConnectionPool 기능 jar 파일을 /WEB-INF/lib 폴더에 설치
+
+   [lib폴더](https://github.com/jjy3385/javaWeb/tree/main/pro07/WebContent/WEB-INF/lib)
+
+3. CATALINA_HOME/context.xml 에 Connection 객체 생성 시 연결할 데이터베이스 정보를 JNDI로 설정
+
+   [context.xml](https://github.com/jjy3385/javaWeb/blob/main/Servers/Tomcat%20v9.0%20Server%20at%20localhost-config/context.xml)
+
+4. DAO클래스에서 데이터베이스 연동 시 미리 설정한 JNDI 이름으로 데이터베이스 연결 작업 수행
+
+   [memberDAO](https://github.com/jjy3385/javaWeb/blob/main/pro07/src/sec02/ex01/MemberDAO.java)
 
 
-
-## 7.4 DataSource 이용하여 회원 정보 등록
-
-## 7.5 회원 정보 삭제
 
