@@ -28,7 +28,7 @@
 
 >  인클루드 디렉티브 태그는 컨테이너가 jsp파일을 .java로 변환할 때 하나의 .java 파일로 변환하지만 **인클루드 액션 태그는 jsp파일마다 .java파일이 생성**됨
 
-![screen shot 2021-06-08 212927](D:\GitRepository\TIL\웹개발\자바웹을다루는기술\13장\image\screen shot 2021-06-08 212927.png)
+![screen shot 2021-06-08 212927](https://github.com/jjy3385/TIL/blob/main/%EC%9B%B9%EA%B0%9C%EB%B0%9C/%EC%9E%90%EB%B0%94%EC%9B%B9%EC%9D%84%EB%8B%A4%EB%A3%A8%EB%8A%94%EA%B8%B0%EC%88%A0/13%EC%9E%A5/image/screen%20shot%202021-06-08%20212927.png)
 
 .java 파일의 소스에서 include() 메서드로 포함시킨 jsp로 request와 response를 넘기는 것을 확인할 수 있다.즉 jsp request에 매개변수를 바인딩하여 자식jsp로 전달하고 있다
 
