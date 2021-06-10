@@ -23,7 +23,7 @@ HTML5는 기존 HTML4에서 지원하지 않는 동영상이나 오디오 기능
 
 HTML4에서는 웹 페이지 구조에 해당하는 머리말,메뉴,본문,하단부를 만들 때 < div > 태그에 CSS 적용하는 방식으로 작업했었지만 HTML5 에서는 의미 있는 구조를 나타낼  수 있는 태그들을 추가하여 가독성을 높였다.
 
-![HTML5레이아웃](D:\GitRepository\TIL\웹개발\자바웹을다루는기술\16장\image\html_layout.png)
+![HTML5레이아웃](https://github.com/jjy3385/TIL/blob/main/%EC%9B%B9%EA%B0%9C%EB%B0%9C/%EC%9E%90%EB%B0%94%EC%9B%B9%EC%9D%84%EB%8B%A4%EB%A3%A8%EB%8A%94%EA%B8%B0%EC%88%A0/16%EC%9E%A5/image/html_layout.png)
 
 ## 16.3 제이쿼리 주요 개념
 
