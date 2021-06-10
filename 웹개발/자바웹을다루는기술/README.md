@@ -28,3 +28,5 @@
 
 ## [15장.JSP 페이지를 풍부하게 하는 오픈 소스 기능](https://github.com/jjy3385/TIL/blob/main/%EC%9B%B9%EA%B0%9C%EB%B0%9C/%EC%9E%90%EB%B0%94%EC%9B%B9%EC%9D%84%EB%8B%A4%EB%A3%A8%EB%8A%94%EA%B8%B0%EC%88%A0/15%EC%9E%A5/README.md)
 
+## [16장.HTML5와 제이쿼리](https://github.com/jjy3385/TIL/blob/main/%EC%9B%B9%EA%B0%9C%EB%B0%9C/%EC%9E%90%EB%B0%94%EC%9B%B9%EC%9D%84%EB%8B%A4%EB%A3%A8%EB%8A%94%EA%B8%B0%EC%88%A0/16%EC%9E%A5/README.md)
+
