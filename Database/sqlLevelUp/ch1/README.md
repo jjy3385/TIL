@@ -246,7 +246,7 @@ SELECT *
   FROM Shops
 ```
 
-![](D:\GitRepository\TIL\Database\sqlLevelUp\ch1\image\tableScan.png)
+![](https://github.com/jjy3385/TIL/blob/main/Database/sqlLevelUp/ch1/image/tableScan.png)
 
 #### 📌가장 중요한 확인사항
 
@@ -282,7 +282,7 @@ SELECT *
 
 기존 Shops 테이블에 `shop_id` 를 Primary Key를 추가하였다.
 
-![](D:\GitRepository\TIL\Database\sqlLevelUp\ch1\image\IndexScan.png)
+![](https://github.com/jjy3385/TIL/blob/main/Database/sqlLevelUp/ch1/image/indexScan.png)
 
 조작대상 객체,객체에 대한 조작의 종류가 바뀌었다.
 
@@ -330,7 +330,7 @@ SELECT *
    |--Clustered Index Seek(OBJECT:([SQLLevelUp].[dbo].[Shops].[PK_Shops] AS [A]), SEEK:([A].[shop_id]=[SQLLevelUp].[dbo].[Reservations].[shop_id] as [B].[shop_id]) ORDERED FORWARD)
 ```
 
-![](D:\GitRepository\TIL\Database\sqlLevelUp\ch1\image\join.png)
+![](https://github.com/jjy3385/TIL/blob/main/Database/sqlLevelUp/ch1/image/join.png)
 
 #### 조작 대상 객체
 
