@@ -235,4 +235,140 @@ UPDATE STATISTICS [테이블이름]
 
 
 
+### 실행계획 확인 방법
+
+MSSQL 에선 `SET SHOWPLAN_TEXT ON` 명령어를 쓰거나 SSMS에서 실행계획 표시 버튼을 클릭하면 실행계획을 볼 수 있다. 
+
+### 1. 테이블 풀 스캔의 실행 계획
+
+```mssql
+SELECT * 
+  FROM Shops
+```
+
+![](D:\GitRepository\TIL\Database\sqlLevelUp\ch1\image\tableScan.png)
+
+#### 📌가장 중요한 확인사항
+
+* ##### 조작대상 객체
+
+* ##### 객체에 대한 조작의 종류
+
+* ##### 조작 대상이 되는 레코드 수
+
+#### 조작대상 객체
+
+가장 마지막에 개체 `[SQLLevelUp].[dbo].[Shops]`
+
+#### 객체에 대한 조작의 종류
+
+물리적 연산과 논리적 연산에 테이블 스캔
+
+즉, 테이블을 순차적으로 스캔하면서 레코드에 접근하고 있다는 뜻
+
+> 물리적 연산과 논리적 연산이 어떤 차이가 있는지는 잘 모르겠음
+
+#### 조작 대상이 되는 레코드 
+
+데이터양에 따라 함수적으로 처리 비용이 늘어난다
+
+대표적으로 테이블 스캔은 O(N) 의 시간복잡도를 갖지만  인덱스 스캔은 O(logN)의 시간복잡도를 갖는다
+
+> 📌인덱스는 이진트리 자료구조를 사용하기 때문인 것으로 알다
+>
+> 정확한 구현에 대해선 좀 더 스터디가 필요함
+
+### 2. 인덱스 스캔의 실행 계획
+
+기존 Shops 테이블에 `shop_id` 를 Primary Key를 추가하였다.
+
+![](D:\GitRepository\TIL\Database\sqlLevelUp\ch1\image\IndexScan.png)
+
+조작대상 객체,객체에 대한 조작의 종류가 바뀌었다.
+
+#### 조작대상 객체
+
+`Shops` 테이블에서 `[Shops].[PK_Shops]` 인덱스로 바뀌었다
+
+#### 객체에 대한 조작의 종류
+
+인덱스 스캔으로 바뀐것을 확인할 수 있다(일단 클러스터드는 신경쓰지 말자)
+
+#### 조작의 대상이 되는 레코드 수
+
+똑같이 5개다
+
+```mssql
+SELECT *
+  FROM Shops
+ WHERE shop_id = '00001'
+```
+
+위와 같이 `where` 절을 작성하면 조작의 대상이 되는 레코드 수가 하나로 줄어든다.
+
+위의 경우엔 `PK_Shops` 인덱스에서 `shop_id = '00001'` 인 건을 찾은 후에 이 건과 바로 맵핑되는 테이블 레코드를 찾아내는 방식으로 작동한다
+
+위에서 설명한대로 시간복잡도가 O(logN)이므로 테이블 스캔보다 데이터양에 따른 민감도가 적다
+
+### 3. 간단한 테이블 결합의 실행 계획
+
+SQL에서 지연이 일어나는 경우는 대부분 결합(JOIN) 과 관련된 것이다
+
+결합을 사용하면 실행 계획이 대단히 복잡해진다
+
+```mssql
+SELECT * 
+  FROM Shops AS A
+  JOIN Reservations AS B 
+    ON A.shop_id = B.shop_id
+```
+
+```mssql
+-- StmtText  
+|--Nested Loops(Inner Join, OUTER REFERENCES:([B].[shop_id]))
+   |--Clustered Index Scan(OBJECT:([SQLLevelUp].[dbo].[Reservations].[PK_Reservations] AS [B]))
+   |--Clustered Index Seek(OBJECT:([SQLLevelUp].[dbo].[Shops].[PK_Shops] AS [A]), SEEK:([A].[shop_id]=[SQLLevelUp].[dbo].[Reservations].[shop_id] as [B].[shop_id]) ORDERED FORWARD)
+```
+
+![](D:\GitRepository\TIL\Database\sqlLevelUp\ch1\image\join.png)
+
+#### 조작 대상 객체
+
+PK_Reservations,PK_shops
+
+#### 객체에 대한 조작의 종류
+
+📌중첩 루프(Nested Loops) : 가장 기본적인 결합 알고리즘
+
+한쪽 테이블에서 레코드 하나마다 결합조건에 맞는 레코드를 다른 쪽 테이블에서 찾는 방식으로 이중 반복으로 구현되었다.
+
+시간복잡도가 O(N^2)
+
+#### 실행계획을 읽는 방법 
+
+1. 실행계획은 일반적으로 트리 구조로 되어 있다
+2. 중첩 단계가 깊을수록 먼저 수행된다
+
+위의 두 방법을 유념해서 실행계획을 해석해보면 먼저 `Shops.PK_Shops`인덱스 검색(Index Seek)이 이뤄진 것을 알 수 있다.
+
+그 후 결합조건에 의해 `Reservations.PK_Reservations`인덱스 스캔(Index Scan)이 이뤄진다
+
+후에 결합에서 다시 설명하겠지만 `Shops` 가 구동테이블(외부테이블) `Reservations`가 내부테이블이다
+
+(먼저 접근하는 테이블이 구동테이블이 된다)
+
+그렇게 각 테이블 인덱스를 통해 테이블에 대한 접근을 먼저 수행한 후 중첩 루프가 수행된다
+
+ (SSMS UI보다 StmtText가 더 보기 편한거 같다...실행계획이 복잡해질수록 더 그렇다....)
+
 ## 5강. 실행계획의 중요성
+
+옵티마이저는 꽤나 우수하지만 완벽하진 못하다
+
+옵티마이저가 실수할 때 최후의 방법으로  수동으로 실행계획을 변경해주는 것이 데이터베이스 엔지니어의 일이라고 볼 수 있다
+
+이런 작업들을 하기 위해서 먼저 아래의 사항들을 알아야한다.
+
+1. SQL 구문과 그러한 SQL 구문들이 어떠한 접근 경로(access path)로 데이터를 검색하는지
+2. 제대로 된 SQL구문을 작성하려면 어떤 테이블 설정이 효율적인지
+3. 어떤 SQL구문이 주어졌을 때 어떠한 실행계획이 나올지(예측)
