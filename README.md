@@ -1,5 +1,9 @@
 # Today I Learned(TIL)
 
+> 처음엔 기술서적 내용을 한번에 정리해갔지만 막상 필요할 때 검색하기 힘듬
+>
+> 따라서 키워드별로 정리하기로 함
+
 ## 자료구조와알고리즘
 * [HelloCoding](https://github.com/jjy3385/TIL/blob/main/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%99%80%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/HelloCoding.md)
 
