@@ -1,7 +1,18 @@
 # 기본문법
 
-[예제코드](https://github.com/jjy3385/jsBeginner/blob/main/section01/hello.html)
+```html
+<!DOCTYPE html>
+<html lang=ko>
+    <head>
+        <meta charset="utf-8">
+        <title>자바스크립트</title>
+        <script src="./hello.js" defer></script>
+    </head>
+    <body>
 
+    </body>
+</html>
+```
 > 📌**script태그 defer 속성**
 > 
 > defer를 쓰면 body까지 모두 렌더링한 후에 hello.js 파일을 실행함
