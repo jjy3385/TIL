@@ -10,6 +10,9 @@
 ## Java
 * [Java의 정석](https://github.com/jjy3385/TIL/blob/main/Java/Java%EC%9D%98%20%EC%A0%95%EC%84%9D/README.md)
 
+## JS
+* [자바스크립트 비기너:튼튼한 기본기 만들기](https://github.com/jjy3385/TIL/blob/main/javaScript/jsBeginner/README.md)
+
 ## 웹 
 * [자바 웹을 다루는 기술](https://github.com/jjy3385/TIL/blob/main/%EC%9B%B9%EA%B0%9C%EB%B0%9C/%EC%9E%90%EB%B0%94%EC%9B%B9%EC%9D%84%EB%8B%A4%EB%A3%A8%EB%8A%94%EA%B8%B0%EC%88%A0/README.md)
 * [닷넷](https://github.com/jjy3385/TIL/blob/main/%EC%9B%B9%EA%B0%9C%EB%B0%9C/ASP.NET/README.md)
