@@ -29,18 +29,37 @@
 * Multiprogramming
   * Degree of Multiprogramming
     * 메인메모리에 몇개의 프로세스가 올라와 있는지를 나타냄
+
   * i/o-bound  vs cpu-bound process
     * 특정 프로세스가 하는일이 주로 i/o 혹은 cpu 관련 작업을 한다는  뜻
     * 대표적인 i/o-bound 프로세스는 워드프로세서
     * 대표적인 cpu 프로세스는 슈퍼컴퓨터가 일기예보 예측하는거
+
   * Medium-term scheduler 
     * Swapping( swap out / swap in)
     * 메모리에 올라가있는 프로세스에 대해 사용자가 휴식등의 이유로 아무것도 안하는 경우가 있음
     * 그럴 때 OS는 PCB의 CPU 타임등을 끊임없이 감시하고 있다가 아무활동도 안하는 프로세스를 쫒아냄
     * 이때 하드 디스크에 프로세스 이미지를 복붙하고 메모리에서는 빼버림
+      * 실제로 하드에 파일시스템의 저장공간과 프로세스 이미지를 저장하는 공간으로 나뉨
+      * 이런 저장공간을 **Backing store** (swap device) 라고 함
     * 이런 처리를 swap out 이라고 함
     * 반대로 사용자가 다시 해당 프로세스를 시작하면 하드의 프로세스 이미지를 메모리로 올리는데 이 처리를 swap in 이라고 함
     * 이런 처리는 잡스케줄러처럼 너무 길지도 CPU스케줄러처럼 짧지도 않고 그 중간에 해당함
+
   * Context switching (문맥전환)
+
+    > 스케줄러를 통해 프로세스가 전환되는 것을 Context switching 이라고 함
+
     * Scheduler 
+
     * Dispatcher
+
+      * 문맥전환 시 이전 프로세스의 현재상태를 PCB 에 저장하고 실행한 프로세스의 PCB 를 복원(restore)하는 일을 하는 OS 코드
+
+    * Context switching overhaed
+
+      * 문맥전환 시 드는 비용
+
+      * 문맥전환을 할 떄마다 PCB에 저장하고 다른 PCB의 값을 프로세스에 복원하는 처리를 해야하기 때문에 용량을 잡아먹는 등의 부담을 줄 수밖에 없음
+
+        그러므로 이 코드는 로우레벨로 짜는게 좋음(어셈블리)
