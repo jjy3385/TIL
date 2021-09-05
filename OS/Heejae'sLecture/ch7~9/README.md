@@ -1,4 +1,4 @@
-# 7.CPU Scheduling
+# 7~9.CPU Scheduling(스케줄링)
 
 > 💡Ready Q 안에 혹은 메인메모리에 여러개의 프로세스가 줄서서 기다리고 있을 때 현재 진행중인 프로세스가 끝나면 그 중에 어떤 프로세스를 선택해서 CPU의 서비스를 받게 할 것인지를 결정하는 것
 
@@ -79,7 +79,43 @@
 
   * Performance depends on the size of the time quantum
 
-    ​
+  ## Multilevel Queue Scheduling (멀리레벨 큐 스케줄링)
+
+  > 🎯프로세스 그룹에 따라 큐를 여러개 두고 각각의 큐에 그룹에 알맞는 스케줄링 알고리즘을 적용하는 방식
+
+  * Process groups
+    * System process
+      * OS 관련 처리, 가장 긴급하고 중요함
+    * Interactive processes 
+      * 대표적으로 게임이 있음
+    * Inteactive editing processes
+      * 워드 프로세스
+    * Batch processes
+      * 일괄처리, 대표적으로 컴파일, 컴퓨러와 대화가 필요없음
+      * 인터렉티브 프로세스보다는 느려도 큰 문제가 없음
+    * Student processes 
 
 
+## Multilevel Feedback Queue Scheduling
 
+* 복수개의 Queue
+* 다른 Queue 로의 점진적 이동이 가능하도록 피드백을 함
+  * 모든 프로세스는 하나의 큐를 통해 진입하게 되는데 피드백을 통해 그 통로를 바꿔주는 것임
+  * 너무 많은 CPU time 사용 시 다른 Quere 로 이동
+  * 기아 상태 우려시 우선순위가 높은 Quere 로 이동
+
+# Process Ceration (프로세스 생성)
+
+* 프로세스는 프로세스에 의해 만들어진다! 
+* 그러므로 부모,자식,형제 프로세스가 있음
+  * Parent process
+  * Child process
+  * Sibling process
+* 계층관계를 프로세스 트리라고 함
+* Process ID (PID)
+  *  보통 Interger 값으로 0부터 순서대로 채번되며 유니크함
+* 프로세스 생성 
+  * 프로세스 생성 시스템 콜: fnk() 
+    * 메모리에 프로세스 생성(현재 프로세스에는 아무것도 없음)
+  * 프로세스 실행 시스템 콜: exec()
+    * 빈 프로세스에 프로그램을 복사
