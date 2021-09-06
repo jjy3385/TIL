@@ -11,3 +11,5 @@
 ## [5강.운영체제 서비스](https://github.com/jjy3385/TIL/tree/main/OS/Heejae'sLecture/ch5#readme)
 
 ## [6강.프로세스 관리](https://github.com/jjy3385/TIL/tree/main/OS/Heejae'sLecture/ch6#readme)
+
+[7~9강.CPU 스케줄링](https://github.com/jjy3385/TIL/tree/main/OS/Heejae'sLecture/ch7~9#readme)
