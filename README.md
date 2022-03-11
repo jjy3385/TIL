@@ -4,6 +4,8 @@
 >
 > 따라서 키워드별로 정리하기로 함
 
+> 새 회사 입사 후 TIL 작성할만한 내용들은 모두 노션에서 정리중.. 그 중 괜찮은 것들은 [블로그](https://velog.io/@jjy3385)로 내용 보충하여 옮길 에정!! 
+
 ## 자료구조와알고리즘
 * [HelloCoding](https://github.com/jjy3385/TIL/blob/main/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%99%80%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/HelloCoding.md)
 
